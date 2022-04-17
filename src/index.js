@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    buildToDo(e.target["new-task-description"].value);
+    e.target["new-task-description"].value === ""
+      ? e.stopPropagation()
+      : buildToDo(e.target["new-task-description"].value);
     form.reset();
   });
 });
@@ -48,4 +50,4 @@ step 14: this function will remove -> the parentNode -> of the target -> in the 
 step 15: inside the event lsitener for the form adding .reset() will clear the field
 */
 
-if value of the submit is === "" then event.stopPropagation(); else (all that other crap)
+//value of the submit is === "" ? event.stopPropagation() : (all that other crap)
